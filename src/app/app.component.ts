@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
@@ -8,7 +8,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   noConf:number=0;
   littleConf:number=0;
   goodConf:number=0;
@@ -20,6 +20,11 @@ export class AppComponent {
   iArrSelectedUsers:any[]=[[],[],[],[],[]];
 
   constructor(public dialog: MatDialog){}
+  ngOnInit()
+  {
+    let arrUsersInfo=localStorage.getItem("usersInfo");
+    this.iArrSelectedUsers=arrUsersInfo?JSON.parse(arrUsersInfo):[[],[],[],[],[]];
+  }
   addUsers(iIndex:number)
   {
 
@@ -32,6 +37,7 @@ export class AppComponent {
         {
           this.iArrCounts[iIndex]++;
           this.iArrSelectedUsers[iIndex].push(result);
+          localStorage.setItem("usersInfo",JSON.stringify(this.iArrSelectedUsers));
         }
 
 
