@@ -52,7 +52,8 @@ export class DialogBoardName {
 
     }
 
-  onNoClick(): void {
+  onNoClick(): void
+  {
     this.dialogRef.close();
   }
 

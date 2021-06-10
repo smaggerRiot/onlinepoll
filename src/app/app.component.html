@@ -1,28 +1,45 @@
+<div class="d-header text-center">
+
+  <img  src="assets/images/team_logo.png" class="img-fluid" width="70" height="70">
+
+<span class="s-teamname h1" style="vertical-align: middle;">
+  Vikings Confidence Vote
+</span>
+</div>
 <div class="container-fluid " >
+
 
   <div class="d-votes mt-4">
     <div class="row">
       <div class="col-xl-1 col-lg-1 col-md-0 col-sm-0 col-0 "></div>
       <ng-container *ngFor="let img of sArrGifs;let iIndex= index ">
         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 mt-2">
-                <div class="h3 text-center">
+                <div class="h3 text-center ">
                   <span class="s-ratings">{{iIndex+1}} </span>
                 </div>
-                <div class="card " (click)="addUsers(iIndex)">
+                <div class="card" (click)="addUsers(iIndex)">
                   <div class="card-header h5 text-center">{{sArrHeaders[iIndex]}}</div>
                   <img class="card-img-top" [src]="img" >
-                  <div class="card-footer">
-                    <mat-icon>thumb_up</mat-icon>
-                    {{this.iArrCounts[iIndex]}}
+                  <div class="card-body">
+                    <div >
+                      <mat-icon>thumb_up</mat-icon>
+                      {{this.iArrCounts[iIndex]}}
+                    </div>
+
                   </div>
+
+                </div>
+                <div class="d-users">
+
+                  <ul class="list-group">
+
+                    <ng-container *ngFor="let user of iArrSelectedUsers[iIndex]">
+                     <li class="list-group-item" style="line-break: anywhere;"><mat-icon>account_circle</mat-icon><span class="s-usertext h5">{{user}}</span></li>
+                    </ng-container>
+                   </ul>
                 </div>
 
-              <ul class="list-group">
 
-               <ng-container *ngFor="let user of iArrSelectedUsers[iIndex]">
-                <li class="list-group-item"><mat-icon>account_circle</mat-icon><span class="s-usertext h5">{{user}}</span></li>
-               </ng-container>
-              </ul>
           </div>
       </ng-container>
 
