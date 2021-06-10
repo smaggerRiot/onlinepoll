@@ -1,0 +1,29 @@
+.card:hover{
+  cursor: pointer;
+}
+.card-footer{
+  text-align: center;
+    font-size: 120%;
+    font-weight: 600;
+}
+:host ::ng-deep  .mat-icon
+{
+  position: relative;
+    top: 5px;
+    color: #0d6efd;
+}
+.s-usertext
+{
+  position: relative;
+    left: 4px;
+    top: -3px;
+}
+.s-ratings
+{
+  padding: 4px 14px;
+    border-radius: 95%;
+    background: #ffe842;
+    color: white;
+
+
+}
